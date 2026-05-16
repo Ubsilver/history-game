@@ -155,6 +155,7 @@ const NAMES = { rock: 'Камень', scissors: 'Ножницы', paper: 'Бум
 
 // Награда
 const rewardImg           = document.getElementById('reward-img');
+const rewardName          = document.getElementById('reward-name');
 const rewardCaption       = document.getElementById('reward-caption');
 const btnPlayFromReward   = document.getElementById('btn-play-from-reward');
 const btnLeaveReward      = document.getElementById('btn-leave-reward');
@@ -512,9 +513,11 @@ function showReward(jewel, mode) {
   if (jewel) {
     rewardImg.src = jewel.image;
     rewardImg.alt = jewel.name || 'Украшение';
+    rewardName.textContent    = jewel.name || '';
     rewardCaption.textContent = jewel.caption;
   } else {
     rewardImg.src = '';
+    rewardName.textContent    = '';
     rewardCaption.textContent = 'Все украшения уже были показаны...';
   }
 
