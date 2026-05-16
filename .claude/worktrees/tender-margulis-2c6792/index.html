@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Лавка Старого Торговца</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Верхняя сцена: лавка -->
+    <div id="scene">
+      <div id="bg-image">
+        <div id="bg-placeholder-text">Фон лавки<br><span>images/bg.jpg</span></div>
+      </div>
+    </div>
+
+    <!-- Торговец — абсолютно поверх сцены, нижний край уходит за панель -->
+    <div id="merchant-figure">
+      <div id="merchant-placeholder-text">Торговец<br><span>images/merchant.png</span></div>
+    </div>
+
+    <!-- Нижняя панель: диалоги / игра -->
+    <div id="bottom-panel">
+
+      <!-- ─── ГЛАВНЫЙ ЭКРАН ─── -->
+      <div id="main-view" class="view">
+        <div id="main-title">⚜ Лавка Старого Торговца ⚜</div>
+        <div id="main-buttons">
+          <button id="btn-talk" class="btn btn-gold">Заговорить с торговцем</button>
+          <button id="btn-collection" class="btn btn-dark">Мои украшения</button>
+        </div>
+      </div>
+
+      <!-- ─── ДИАЛОГ ─── -->
+      <div id="dialogue-view" class="view hidden">
+        <div id="dialogue-box">
+          <div id="speaker-label">⚜ Торговец ⚜</div>
+          <div id="dialogue-text"></div>
+        </div>
+        <div id="dialogue-buttons">
+          <button id="btn-next"            class="btn btn-gold">Далее ›</button>
+          <button id="btn-claim"           class="btn btn-gold hidden">Забрать подарок ›</button>
+          <button id="btn-listen"          class="btn btn-dark hidden">Послушать историю</button>
+          <button id="btn-game"            class="btn btn-gold hidden">Сыграть в игру</button>
+          <button id="btn-retry"           class="btn btn-dark hidden">Попробовать снова</button>
+          <button id="btn-leave-dialogue"  class="btn btn-dark hidden">Уйти</button>
+        </div>
+      </div>
+
+      <!-- ─── ВЫБОР ИСТОРИИ ─── -->
+      <div id="story-select-view" class="view hidden">
+        <div id="story-select-box">
+          <div id="story-select-label">⚜ Торговец ⚜</div>
+          <div id="story-select-text">За жизнь я повидал многое, путник. Про что ты хочешь послушать?</div>
+        </div>
+        <div id="story-select-buttons"><!-- кнопки историй добавляются через JS --></div>
+        <button id="btn-leave-story-select" class="btn btn-dark">Уйти</button>
+      </div>
+
+      <!-- ─── ИГРА КНБ ─── -->
+      <div id="game-view" class="view hidden">
+
+        <div id="game-streak-bar">
+          <span>Победы подряд:</span>
+          <div id="streak-pips">
+            <span class="pip" id="pip-1"></span>
+            <span class="pip" id="pip-2"></span>
+            <span class="pip" id="pip-3"></span>
+          </div>
+        </div>
+
+        <div id="choices-display">
+          <div id="merchant-side" class="choice-side">
+            <span class="choice-who">⚜ Торговец</span>
+            <div class="choice-right">
+              <span class="choice-name" id="merchant-name-text"></span>
+              <span class="choice-icon" id="merchant-icon">—</span>
+            </div>
+          </div>
+          <div id="player-side" class="choice-side">
+            <span class="choice-who">Ты</span>
+            <div class="choice-right">
+              <span class="choice-name" id="player-name-text"></span>
+              <span class="choice-icon" id="player-icon">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="rps-buttons">
+          <button class="rps-btn" data-choice="rock">
+            <span class="rps-icon">🪨</span>
+            <span class="rps-label">Камень</span>
+          </button>
+          <button class="rps-btn" data-choice="scissors">
+            <span class="rps-icon">✂️</span>
+            <span class="rps-label">Ножницы</span>
+          </button>
+          <button class="rps-btn" data-choice="paper">
+            <span class="rps-icon">📜</span>
+            <span class="rps-label">Бумага</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div><!-- /bottom-panel -->
+
+    <!-- ─── ОВЕРЛЕЙ НАГРАДЫ ─── -->
+    <div id="reward-overlay" class="hidden">
+      <div id="reward-inner">
+        <div id="reward-title">✨ Твоя награда ✨</div>
+        <div id="reward-img-wrap">
+          <img id="reward-img" src="" alt="Украшение">
+        </div>
+        <p id="reward-caption"></p>
+        <div id="reward-buttons">
+          <button id="btn-play-from-reward"   class="btn btn-gold hidden">Сыграть в игру</button>
+          <button id="btn-leave-reward"       class="btn btn-dark hidden">Уйти</button>
+          <button id="btn-restart"            class="btn btn-dark hidden">Сыграть снова</button>
+          <button id="btn-listen-from-reward" class="btn btn-dark hidden">Послушать историю</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── КОЛЛЕКЦИЯ УКРАШЕНИЙ ─── -->
+    <div id="collection-overlay" class="overlay-screen hidden">
+      <div id="collection-header">
+        <span id="collection-title">⚜ Мои украшения ⚜</span>
+        <button id="btn-close-collection" class="btn-x">✕</button>
+      </div>
+      <div id="collection-grid"><!-- карточки добавляются через JS --></div>
+    </div>
+
+    <!-- ─── ДЕТАЛЬНЫЙ ПРОСМОТР УКРАШЕНИЯ ─── -->
+    <div id="item-detail-overlay" class="overlay-screen hidden">
+      <div id="detail-header">
+        <button id="btn-close-detail" class="btn-x">✕</button>
+      </div>
+      <div id="detail-content">
+        <div id="detail-img-wrap">
+          <img id="detail-img" src="" alt="">
+        </div>
+        <h3 id="detail-name"></h3>
+        <p id="detail-caption"></p>
+      </div>
+    </div>
+
+  </div><!-- /app -->
+
+  <script src="jewelry-data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
