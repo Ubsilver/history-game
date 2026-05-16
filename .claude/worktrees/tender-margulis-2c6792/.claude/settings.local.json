@@ -3,7 +3,9 @@
     "allow": [
       "Bash(cp \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\.claude\\\\worktrees\\\\tender-margulis-2c6792\\\\game.js\" \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\game.js\")",
       "Bash(cp \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\.claude\\\\worktrees\\\\tender-margulis-2c6792\\\\index.html\" \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\index.html\")",
-      "Bash(cp \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\.claude\\\\worktrees\\\\tender-margulis-2c6792\\\\style.css\" \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\style.css\")"
+      "Bash(cp \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\.claude\\\\worktrees\\\\tender-margulis-2c6792\\\\style.css\" \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\style.css\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(node --check \"C:\\\\Users\\\\asonza\\\\Desktop\\\\progect\\\\Урфу\\\\history-game\\\\game.js\")"
     ]
   }
 }

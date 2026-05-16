@@ -14,7 +14,6 @@ const INTRO_PHRASES = [
   "Так что решай, путник. Будешь слушать мою сказку — или сразу в «Камень, ножницы, бумага» сыграем? Время терпит, солнце ещё высоко. Ты только скажи, а старик пока ладонь разомнёт..."
 ];
 
-// Фразы для повторных визитов
 const RETURN_PHRASES = [
   "О, ты вернулся! Помню тебя, странник. Глаза не те, что были, а память ещё держит. Чего желаешь на этот раз?",
   "А, знакомое лицо! Присаживайся. Солнце ещё высоко, время есть. Слушать будешь, играть — или уйдёшь восвояси?",
@@ -85,6 +84,143 @@ const STORIES = [
   }
 ];
 
+const QUIZZES = {
+  travels: [
+    {
+      question: "«Запомнил ли ты, путник? В Египте мастера узор цветной на золоте делали — чего туда вставляли, а потом плавили?»",
+      options: [
+        "Паутину да мушиные головы",
+        "Зернь да чернь",
+        "Лазурит, бирюзу, сердолик или цветное стекло",
+        "Воск да глину"
+      ],
+      correct: 2
+    },
+    {
+      question: "«А из какой земли мастера первыми догадались, что украшение — не просто побрякушка, а искусство? Где золото с эмалью да жемчугом мешали?»",
+      options: [
+        "Из Египта",
+        "Из Междуречья, от шумеров",
+        "Из Греции",
+        "С Руси, из Новгорода"
+      ],
+      correct: 2
+    },
+    {
+      question: "«А наши мастера, славянские — чем тёмный рисунок на светлом металле выводили?»",
+      options: [
+        "Лазуритом",
+        "Чернением",
+        "Перегородчатой эмалью",
+        "Сканью из проволоки"
+      ],
+      correct: 1
+    }
+  ],
+  metals: [
+    {
+      question: "«Путник, почему золото египтяне „плотью богов\" величали? Неспроста ведь, а?»",
+      options: [
+        "Потому что оно самое твёрдое и в земле не гниёт",
+        "Потому что не ржавеет, не тускнеет и на солнце играет особо",
+        "Потому что из него только монеты чеканили",
+        "Потому что оно дешевле серебра было"
+      ],
+      correct: 1
+    },
+    {
+      question: "«А про серебро что скажешь? На каком металле чернь лучше всего ложится?»",
+      options: [
+        "На золоте",
+        "На меди",
+        "На серебре",
+        "На бронзе"
+      ],
+      correct: 2
+    },
+    {
+      question: "«Какой металл человек раньше всех в руки взял, ещё до золота, а потом с оловом смешивать догадался?»",
+      options: [
+        "Серебро, из него — амулеты",
+        "Медь, а потом бронзу — из неё и доспехи и мечи",
+        "Железо — из него топоры",
+        "Золото — из него только богов"
+      ],
+      correct: 1
+    }
+  ],
+  techniques: [
+    {
+      question: "«Какое литьё древние мастера самым хитрым колдовством считали? Когда из воска модель лепят, глиной обмазывают, обжигают, а потом золото заливают?»",
+      options: [
+        "Литьё в открытые глиняные формы",
+        "Литьё в разъёмные каменные формы",
+        "Литьё по выплавляемой восковой модели",
+        "Литьё в кокиль"
+      ],
+      correct: 2
+    },
+    {
+      question: "«Какая техника позволяет рельеф на металле быстро отпечатывать? Доску с узором вырежут, лист положат, придавят — и готово. Как называется?»",
+      options: [
+        "Дифовка",
+        "Басма (тиснение)",
+        "Таушировка",
+        "Обронная резьба"
+      ],
+      correct: 1
+    },
+    {
+      question: "«Когда в узор заливают сплав из серебра, меди, свинца и серы — это одно. Когда на металле канавки режут и забивают туда золотой проволокой — это другое. Как их называют?»",
+      options: [
+        "Гравировка и чеканка",
+        "Филигрань и зернь",
+        "Чернь и таушировка",
+        "Басма и дифовка"
+      ],
+      correct: 2
+    }
+  ],
+  master: [
+    {
+      question: "«Вспомни: с чего старый мастер начал, когда взялся диадему для императрицы делать?»",
+      options: [
+        "Сразу выковал из золотого листа",
+        "Сделал литьё по воску — веточки, листья, бутоны",
+        "Начал с чеканки на смоляной подушке",
+        "Сразу вырезал узор штихелем"
+      ],
+      correct: 1
+    },
+    {
+      question: "«Как мастер чёрный узор на золоте делал? И что рядом — на серебре канавки прорезал и золотой проволокой забил?»",
+      options: [
+        "Гравировка и чеканка",
+        "Чернь и таушировка",
+        "Басма и дифовка",
+        "Филигрань и зернь"
+      ],
+      correct: 1
+    },
+    {
+      question: "«Чем мастер все детали соединил, чтобы диадема века простояла? Как называется этот металлический „клей\", что древнее Вавилона?»",
+      options: [
+        "Сварка",
+        "Ковка",
+        "Пайка",
+        "Литьё"
+      ],
+      correct: 2
+    }
+  ]
+};
+
+const QUIZ_FAIL_PHRASES = [
+  "Эх, путник... Слушал, да не запомнил. Я не в обиде — голова у всех своя. Но подарок мой достаётся тем, кто историю в сердце держит. Прослушай ещё раз — и возвращайся.",
+  "Не тот ответ, странник. Старик рассказывал внимательно, а ты, видать, отвлёкся. Ничего страшного. Прослушай снова — и всё запомнишь. Украшение тебя дождётся.",
+  "Не угадал, путник. Но это не беда. Вернись, прослушай историю — и тогда приходи с правильным ответом. Торопиться незачем."
+];
+
 const WIN_SPEECH =
   "Ох, ловок ты, путник! Моя старая ладонь три хода делала — и все мимо. Видать, глаза уже не те, а может, ты сам с удачей в родстве. Держу слово. Выбирай любую безделицу из ларца.";
 
@@ -97,44 +233,49 @@ const LOSE_PHRASES = [
 // ══════════════════════════════════════════════════
 //  Состояние
 // ══════════════════════════════════════════════════
-let introIndex       = 0;
-let storyIndex       = 0;
-let gameStreak       = 0;
-let currentMode      = 'main';
-let currentStoryId   = null;
-let hasVisited       = false;
-let shownJewelryIds  = new Set();
-let ownedJewelryIds  = new Set();
-let readStoryIds     = new Set();
-let jewelryPool      = [];
+let introIndex          = 0;
+let storyIndex          = 0;
+let quizIndex           = 0;
+let gameStreak          = 0;
+let currentMode         = 'main';
+let currentStoryId      = null;
+let hasVisited          = false;
+let shownJewelryIds     = new Set();
+let ownedJewelryIds     = new Set();
+let completedStoryIds   = new Set();
+let jewelryPool         = [];
 
-const LS_KEY_OWNED        = 'medievalJewelryOwned';
-const LS_KEY_VISITED      = 'medievalVisited';
-const LS_KEY_READ_STORIES = 'medievalReadStories';
+const LS_KEY_OWNED            = 'medievalJewelryOwned';
+const LS_KEY_VISITED          = 'medievalVisited';
+const LS_KEY_COMPLETED_STORIES = 'medievalCompletedStories';
 
 // ══════════════════════════════════════════════════
 //  DOM
 // ══════════════════════════════════════════════════
-const mainView          = document.getElementById('main-view');
-const dialogueView      = document.getElementById('dialogue-view');
-const storySelectView   = document.getElementById('story-select-view');
-const storySelectBtns   = document.getElementById('story-select-buttons');
+const mainView            = document.getElementById('main-view');
+const dialogueView        = document.getElementById('dialogue-view');
+const storySelectView     = document.getElementById('story-select-view');
+const storySelectBtns     = document.getElementById('story-select-buttons');
 const btnLeaveStorySelect = document.getElementById('btn-leave-story-select');
-const gameView          = document.getElementById('game-view');
-const rewardOverlay     = document.getElementById('reward-overlay');
+const quizView            = document.getElementById('quiz-view');
+const quizQuestion        = document.getElementById('quiz-question');
+const quizOptions         = document.getElementById('quiz-options');
+const gameView            = document.getElementById('game-view');
+const rewardOverlay       = document.getElementById('reward-overlay');
 
 // Главный экран
 const btnTalk       = document.getElementById('btn-talk');
 const btnCollection = document.getElementById('btn-collection');
 
 // Диалог
-const dialogueText     = document.getElementById('dialogue-text');
-const btnNext          = document.getElementById('btn-next');
-const btnClaim         = document.getElementById('btn-claim');
-const btnListen        = document.getElementById('btn-listen');
-const btnGame          = document.getElementById('btn-game');
-const btnRetry         = document.getElementById('btn-retry');
-const btnLeaveDialogue = document.getElementById('btn-leave-dialogue');
+const dialogueText      = document.getElementById('dialogue-text');
+const btnNext           = document.getElementById('btn-next');
+const btnClaim          = document.getElementById('btn-claim');
+const btnListen         = document.getElementById('btn-listen');
+const btnGame           = document.getElementById('btn-game');
+const btnRetry          = document.getElementById('btn-retry');
+const btnRestartStory   = document.getElementById('btn-restart-story');
+const btnLeaveDialogue  = document.getElementById('btn-leave-dialogue');
 
 // Игра
 const pip1 = document.getElementById('pip-1');
@@ -184,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadOwned();
   loadVisited();
-  loadReadStories();
+  loadCompletedStories();
   setupListeners();
   showView('main');
   checkPlaceholders();
@@ -203,32 +344,27 @@ function checkPlaceholders() {
 }
 
 function setupListeners() {
-  // Главный экран
   btnTalk.addEventListener('click', startTalk);
   btnCollection.addEventListener('click', openCollection);
 
-  // Диалог
   btnNext.addEventListener('click', handleNext);
   btnClaim.addEventListener('click', claimGift);
   btnListen.addEventListener('click', showStorySelect);
   btnGame.addEventListener('click', startGame);
   btnRetry.addEventListener('click', startGame);
+  btnRestartStory.addEventListener('click', () => selectStory(currentStoryId));
   btnLeaveDialogue.addEventListener('click', () => showView('main'));
 
-  // Выбор истории
   btnLeaveStorySelect.addEventListener('click', () => showView('main'));
 
-  // Награда
   btnPlayFromReward.addEventListener('click', startGame);
   btnLeaveReward.addEventListener('click', () => showView('main'));
   btnRestart.addEventListener('click', startGame);
   btnListenFromReward.addEventListener('click', showStorySelect);
 
-  // Коллекция
   btnCloseCollection.addEventListener('click', closeCollection);
   btnCloseDetail.addEventListener('click', closeItemDetail);
 
-  // КНБ
   document.querySelectorAll('.rps-btn').forEach(btn => {
     btn.addEventListener('click', () => handleRPS(btn.dataset.choice));
   });
@@ -257,12 +393,13 @@ function showReturnPhrase() {
   dialogueText.textContent =
     RETURN_PHRASES[Math.floor(Math.random() * RETURN_PHRASES.length)];
 
-  toggle(btnNext,          false);
-  toggle(btnClaim,         false);
-  toggle(btnListen,        true);
-  toggle(btnGame,          true);
-  toggle(btnRetry,         false);
-  toggle(btnLeaveDialogue, true);
+  toggle(btnNext,           false);
+  toggle(btnClaim,          false);
+  toggle(btnListen,         true);
+  toggle(btnGame,           true);
+  toggle(btnRetry,          false);
+  toggle(btnRestartStory,   false);
+  toggle(btnLeaveDialogue,  true);
 
   btnListen.textContent = 'Послушать историю';
 }
@@ -282,6 +419,7 @@ function showIntroPhrase() {
   toggle(btnListen,         isLast);
   toggle(btnGame,           isLast);
   toggle(btnRetry,         false);
+  toggle(btnRestartStory,  false);
   toggle(btnLeaveDialogue, false);
 }
 
@@ -300,7 +438,7 @@ function handleNext() {
       storyIndex++;
       showStoryPhrase();
     } else {
-      showStoryReward();
+      showStoryEnd();
     }
   }
 }
@@ -317,12 +455,12 @@ function showStorySelect() {
 function renderStorySelectButtons() {
   storySelectBtns.innerHTML = '';
   STORIES.forEach(story => {
-    const isRead = readStoryIds.has(story.id);
+    const isDone = completedStoryIds.has(story.id);
     const btn = document.createElement('button');
     btn.className = 'btn btn-story-option';
     btn.innerHTML =
       `<span class="story-option-title">${story.title}</span>` +
-      (isRead ? '<span class="story-option-check">&#10003;</span>' : '');
+      (isDone ? '<span class="story-option-check">&#10003;</span>' : '');
     btn.addEventListener('click', () => selectStory(story.id));
     storySelectBtns.appendChild(btn);
   });
@@ -344,10 +482,11 @@ function showStoryPhrase() {
   const phrases = story ? story.phrases : [];
   dialogueText.textContent = phrases[storyIndex] || '';
 
-  const isLast     = (storyIndex === phrases.length - 1);
-  const alreadyRead = readStoryIds.has(currentStoryId);
+  const isLast      = (storyIndex === phrases.length - 1);
+  const isCompleted = completedStoryIds.has(currentStoryId);
+
   if (isLast) {
-    btnNext.textContent = alreadyRead ? 'Завершить ›' : 'Получить украшение ›';
+    btnNext.textContent = isCompleted ? 'Завершить ›' : 'Пройти испытание ›';
   } else {
     btnNext.textContent = 'Далее ›';
   }
@@ -356,30 +495,97 @@ function showStoryPhrase() {
   toggle(btnListen,        false);
   toggle(btnGame,          false);
   toggle(btnRetry,         false);
+  toggle(btnRestartStory,  false);
   toggle(btnLeaveDialogue, false);
 }
 
-function showStoryReward() {
-  const isFirstRead = !readStoryIds.has(currentStoryId);
-  readStoryIds.add(currentStoryId);
-  saveReadStories();
+function showStoryEnd() {
+  const isCompleted = completedStoryIds.has(currentStoryId);
 
-  if (isFirstRead) {
-    const jewel = pickJewelry();
-    addToOwned(jewel);
-    showReward(jewel, 'story');
-  } else {
+  if (isCompleted) {
+    // Повторное прочтение — квиз не нужен
     currentMode = 'story-end';
     showView('dialogue');
-    dialogueText.textContent = 'Хорошая история, правда? Рад, что выслушал старика ещё раз. Но подарок за одну историю я дважды не даю — ты своё уже получил.';
+    dialogueText.textContent = 'Хорошая история, правда? Рад, что выслушал старика ещё раз. Украшение ты уже заслужил — приходи ещё.';
     toggle(btnNext,          false);
     toggle(btnClaim,         false);
     toggle(btnListen,        true);
     toggle(btnGame,          false);
     toggle(btnRetry,         false);
+    toggle(btnRestartStory,  false);
     toggle(btnLeaveDialogue, true);
     btnListen.textContent = 'Послушать другую историю';
+  } else {
+    startQuiz();
   }
+}
+
+// ══════════════════════════════════════════════════
+//  КВИЗ
+// ══════════════════════════════════════════════════
+function startQuiz() {
+  quizIndex   = 0;
+  currentMode = 'quiz';
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  const questions = QUIZZES[currentStoryId];
+  if (!questions) return;
+  const q = questions[quizIndex];
+
+  showView('quiz');
+  quizQuestion.textContent = q.question;
+
+  quizOptions.innerHTML = '';
+  const labels = ['А', 'Б', 'В', 'Г'];
+  q.options.forEach((text, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-quiz-option';
+    btn.textContent = `${labels[i]}) ${text}`;
+    btn.addEventListener('click', () => handleQuizAnswer(i));
+    quizOptions.appendChild(btn);
+  });
+}
+
+function handleQuizAnswer(index) {
+  const questions = QUIZZES[currentStoryId];
+  const q = questions[quizIndex];
+
+  if (index !== q.correct) {
+    showQuizFail();
+    return;
+  }
+
+  quizIndex++;
+  if (quizIndex < questions.length) {
+    showQuizQuestion();
+  } else {
+    showQuizPass();
+  }
+}
+
+function showQuizFail() {
+  currentMode = 'quiz-fail';
+  showView('dialogue');
+  dialogueText.textContent =
+    QUIZ_FAIL_PHRASES[Math.floor(Math.random() * QUIZ_FAIL_PHRASES.length)];
+
+  toggle(btnNext,          false);
+  toggle(btnClaim,         false);
+  toggle(btnListen,        false);
+  toggle(btnGame,          false);
+  toggle(btnRetry,         false);
+  toggle(btnRestartStory,  true);
+  toggle(btnLeaveDialogue, true);
+}
+
+function showQuizPass() {
+  completedStoryIds.add(currentStoryId);
+  saveCompletedStories();
+  const jewel = pickJewelry();
+  addToOwned(jewel);
+  showReward(jewel, 'story');
 }
 
 // ══════════════════════════════════════════════════
@@ -480,6 +686,7 @@ function showWinSpeech() {
   toggle(btnListen,        false);
   toggle(btnGame,          false);
   toggle(btnRetry,         false);
+  toggle(btnRestartStory,  false);
   toggle(btnLeaveDialogue, false);
 }
 
@@ -498,6 +705,7 @@ function showGameLose() {
   toggle(btnListen,        true);
   toggle(btnGame,          false);
   toggle(btnRetry,         true);
+  toggle(btnRestartStory,  false);
   toggle(btnLeaveDialogue, true);
   btnListen.textContent = 'Послушать историю';
 }
@@ -506,23 +714,21 @@ function showGameLose() {
 //  НАГРАДА
 // ══════════════════════════════════════════════════
 function showReward(jewel, mode) {
-  // mode 'story' → "Сыграть в игру" + "Уйти"
-  // mode 'win'   → "Сыграть снова" + "Послушать историю"
   rewardOverlay.classList.remove('hidden');
 
   if (jewel) {
-    rewardImg.src = jewel.image;
-    rewardImg.alt = jewel.name || 'Украшение';
-    rewardName.textContent    = jewel.name || '';
-    rewardCaption.textContent = jewel.caption;
+    rewardImg.src              = jewel.image;
+    rewardImg.alt              = jewel.name || 'Украшение';
+    rewardName.textContent     = jewel.name || '';
+    rewardCaption.textContent  = jewel.caption;
   } else {
-    rewardImg.src = '';
-    rewardName.textContent    = '';
-    rewardCaption.textContent = 'Все украшения уже были показаны...';
+    rewardImg.src              = '';
+    rewardName.textContent     = '';
+    rewardCaption.textContent  = 'Все украшения уже были показаны...';
   }
 
   toggle(btnPlayFromReward,   mode === 'story');
-  toggle(btnLeaveReward,      true);              // "Уйти" всегда
+  toggle(btnLeaveReward,      true);
   toggle(btnRestart,          mode === 'win');
   toggle(btnListenFromReward, mode === 'win');
 }
@@ -628,16 +834,16 @@ function saveVisited() {
   } catch (e) {}
 }
 
-function loadReadStories() {
+function loadCompletedStories() {
   try {
-    const saved = localStorage.getItem(LS_KEY_READ_STORIES);
-    if (saved) JSON.parse(saved).forEach(id => readStoryIds.add(id));
+    const saved = localStorage.getItem(LS_KEY_COMPLETED_STORIES);
+    if (saved) JSON.parse(saved).forEach(id => completedStoryIds.add(id));
   } catch (e) {}
 }
 
-function saveReadStories() {
+function saveCompletedStories() {
   try {
-    localStorage.setItem(LS_KEY_READ_STORIES, JSON.stringify([...readStoryIds]));
+    localStorage.setItem(LS_KEY_COMPLETED_STORIES, JSON.stringify([...completedStoryIds]));
   } catch (e) {}
 }
 
@@ -649,6 +855,7 @@ function showView(name) {
   mainView.classList.toggle('hidden',        name !== 'main');
   dialogueView.classList.toggle('hidden',    name !== 'dialogue');
   storySelectView.classList.toggle('hidden', name !== 'story-select');
+  quizView.classList.toggle('hidden',        name !== 'quiz');
   gameView.classList.toggle('hidden',        name !== 'game');
 }
 
